@@ -1,0 +1,64 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+body {margin: 20px; font-family: Arial, serif; font-size: 13px; }
+
+#GooglePlusSharedLinks { 
+		width: 300px; 
+		background: none repeat scroll 0 0 #F6F6F6;
+	    border: 1px solid #CCCCCC;
+	    width: 300px;
+        padding: 15px;
+        margin-bottom: 25px;
+  	}
+  	h1 {
+  		font-size: 26px;
+  	}
+h2 {
+    color: #BA0000;
+    font-size: 20px;
+    letter-spacing: -1px;
+    line-height: 20px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 10px;
+	text-indent: -11px;
+}
+
+#GooglePlusLinks li { margin-bottom: 15px; }
+#GooglePlusLinks li:before { content: "\00BB \0020"; }
+a { color: #000; }
+
+#general-notes {margin-bottom: 20px;}
+#general-notes p {line-height: 1.7em;}

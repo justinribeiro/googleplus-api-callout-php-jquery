@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Pulling data from Google Plus streams with PHP and displaying with jQuery / Stickman Ventures</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Simple Google API callout using PHP, file cache, and jQuery to display Google Plus data on your site.">
+		<meta name="author" content="Justin Ribeiro and his band, Team Stickman">
+	
+		<link rel="stylesheet"  href="style.css" />		
+	</head>
+	<body>
+	
+	<div id="GooglePlusSharedLinks">
+		<h2>Google+ Shared Links</h2>
+		<ul id="GooglePlusLinks"></ul>
+	</div>
+	
+	<script id="GooglePlusTemplate" type="text/x-jquery-tmpl">
+		<li>
+			<a href="{{=url}}">{{=displayName}}</a>
+		</li>
+	</script>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jsrender.js"></script>
+		
+	<script>
+	$(document).ready(function(){
+
+		$.ajax({
+			url: "getGooglePlus.php",
+			dataType: "jsong",
+			converters: {
+			    "json jsong": function( msg ) {
+			    	var retData = new Array();
+			    	for (var i = 0; i < msg.items.length; i++) {
+			    		if ( msg.items[i].object.hasOwnProperty( "attachments" ) && msg.items[i].object.attachments.length >= 1)
+			    		{
+			    			for (var j = 0; j < msg.items[i].object.attachments.length; j++)
+			    			{
+			    				if (msg.items[i].object.attachments[j].objectType === "article")
+			    				{
+			    					retData.push( msg.items[i].object.attachments[j] );
+			    				}
+			    			}
+			    		}
+			    	}
+			    	return retData;
+			    }
+			}
+		}).done(function( data ) {
+ 			$( "#GooglePlusLinks" ).html(
+				$( "#GooglePlusTemplate" ).render( data )
+			);
+		});
+
+	});
+	</script>
+
+</body>
+</html>
